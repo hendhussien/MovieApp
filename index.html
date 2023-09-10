@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="icon" type="image/x-icon" href="/images/main-logo.png" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <section id="sideBar">
+      <div class="sideBarInner text-white sideBarDisplay w-75 py-4">
+        <ul class="navItems">
+          <li class="nav-item navItem1 ">
+            <a class="nav-link movieLink active" aria-current="page" href="#" value="now_playing">Now Playing</a>
+          </li>
+          <li class="nav-item navItem2">
+            <a class="nav-link movieLink" href="#" value="popular">Popular</a>
+          </li>
+          <li class="nav-item navItem3">
+            <a class="nav-link movieLink" href="#" value="top_rated">Top Rated</a>
+          </li>
+          <li class="nav-item navItem4">
+            <a class="nav-link movieLink" href="#" value="top_rated">Trending</a>
+          </li>
+          <li class="nav-item navItem4">
+            <a class="nav-link movieLink" href="#" value="upcoming">Upcoming</a>
+          </li>
+          <li class="nav-item navItem5">
+            <a class="nav-link" href="#" id="contactUsLink">Contact Us</a>
+          </li>
+        </ul>
+        <footer class="">
+          <div class="socialLinks d-flex">
+            <div class="fb pe-1">
+              <i class="fa-brands fa-facebook"></i>
+            </div>
+            <div class="tw pe-1">
+              <i class="fa-brands fa-twitter"></i>
+            </div>
+            <div class="globe">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+          </div>
+          <p class="">Copyright Â© 2019 All Rights Reserved.</p>
+        </footer>
+      </div>
+      <div class="sideBarOuter sideBarDisplay py-4 ">
+        <img src="images/main-logo.png" class="w-50" alt="logo">
+        <div class="bars">
+          <a class="nav-link" href="#"><i class="fa-solid fa-bars fa-2x"></i></a>
+          <a class="nav-link" href="#"><i class="fa-solid fa-xmark fa-2x xMark"></i></a>
+        </div>
+        <div class="links">
+          <a class="nav-link" href="#"><i class="fa-solid fa-globe"></i></a>
+          <a class="nav-link" href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        </div>
+      </div>
+    </section>
+    <!-- Display movies -->
+    <section >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 m-auto">
+            <div class="search text-white">
+              <input type="search" id="inputSearch" onkeyup="searchMovieApi(this.value)" class=" m-5 form-control borderRounded" placeholder="Search">
+            </div>
+          </div>
+        </div>
+        <!-- displaying Movies -->
+        <div class="row text-white gy-4 m-auto" id="rowData">
+          
+        </div>
+      </div>
+    </section>
+    <!-- contact us -->
+    <section class="my-5 text-white" id="contact">
+      <div class="container">
+        <h2>Contact US</h2>
+        <form >
+          <div class="row">
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="text" class="form-control mt-4 inputName" placeholder="enter your name" required>
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="nameError">
+                  <p> Must enter first letter capital, min is 3 and max is 8 </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="email" class="form-control mt-4 mailInput" placeholder="enter your email">
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="mailError">
+                  <p> You have entered an invalid email </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="number" class="form-control mt-4 phoneInput" placeholder="enter your phone" >
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="phoneError">
+                  <p> You have entered an invalid Phone </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="number" class="form-control mt-4 ageInput" placeholder="enter your age" >
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="ageError">
+                  <p> must be over 18 </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="password" class="form-control mt-4 passInput" placeholder="enter your password">
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="passError">
+                  <p> 7 to 15 characters which contain only characters, numeric digits, underscore and first character must be a letter </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contactInput position-relative">
+                <input type="password" class="form-control mt-4 confirmPassInput" placeholder="reEnter your password">
+                <div class="alert alert-danger inputError w-100 rounded-1 position-absolute d-none" id="confirmPassError">
+                  <p> Password does not match!</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div >
+                <button class="btn btn-dark rounded-2 my-4 px-5 py-3 contactBtn " type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- back to top -->
+    <div class="backToTop">
+      <i class="fa-solid fa-arrow-up"></i>
+    </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
